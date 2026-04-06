@@ -141,10 +141,10 @@ export default function RedGoIG() {
     try {
       const formatLabel = format === "carousel" ? "Carousel 5 Slide" : format === "singlegrafis" ? "Single Grafis" : "Quote Card";
       const userMsg = `Topik: ${topic}\nKategori: ${category}\nFormat: ${formatLabel}${angle ? `\nAngle: ${angle}` : ""}`;
-      const response = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const response = await fetch("/api/generate", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
           model: "claude-sonnet-4-20250514",
           max_tokens: 1000,
           system: SYSTEM_GENERATE,
